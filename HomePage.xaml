@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Proyecto_de_prueba.HomePage"
+             Title="User Profile">
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="20">
+
+            <!-- Sección de foto de perfil -->
+            <Label Text="Foto de perfil:" FontAttributes="Bold"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Image x:Name="ProfilePicture" WidthRequest="100" HeightRequest="100" Aspect="AspectFill" />
+                <Button Text="Cargar Foto" Clicked="OnUploadPhotoClicked"/>
+            </StackLayout>
+
+            <!-- Fecha de nacimiento -->
+            <Label Text="Fecha de nacimiento:" FontAttributes="Bold"/>
+            <DatePicker x:Name="BirthDatePicker"/>
+
+            <!-- Opción para agregar forma de pago -->
+            <Label Text="Forma de pago:" FontAttributes="Bold"/>
+
+            <!-- Campo para ingresar número de cuenta -->
+            <StackLayout>
+                <Label Text="Número de cuenta:" FontAttributes="Bold"/>
+                <Entry x:Name="AccountNumberEntry" Placeholder="Ingresa tu número de cuenta" Keyboard="Numeric" />
+            </StackLayout>
+
+            <!-- Sección de estilos de casa -->
+            <Label Text="Selecciona al menos un estilo de casa:" FontAttributes="Bold"/>
+            <Grid RowSpacing="10" ColumnSpacing="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Cuatro imágenes de estilos de casa -->
+                <ImageButton Source="casa_playa.jpg" Grid.Row="0" Grid.Column="0" WidthRequest="100" HeightRequest="100"/>
+                <ImageButton Source="casa_montana.jpg" Grid.Row="0" Grid.Column="1" WidthRequest="100" HeightRequest="100"/>
+                <ImageButton Source="casa_rural.jpg" Grid.Row="1" Grid.Column="0" WidthRequest="100" HeightRequest="100"/>
+                <ImageButton Source="casa_ciudad.jpg" Grid.Row="1" Grid.Column="1" WidthRequest="100" HeightRequest="100"/>
+            </Grid>
+
+            <!-- Sección de tipos de transporte -->
+            <Label Text="Selecciona el tipo de transporte que usas:" FontAttributes="Bold"/>
+            <Grid RowSpacing="10" ColumnSpacing="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Imágenes de transporte -->
+                <ImageButton Source="car.jpg" Grid.Row="0" Grid.Column="0" WidthRequest="100" HeightRequest="100"/>
+                <ImageButton Source="motorcycle.png" Grid.Row="0" Grid.Column="1" WidthRequest="100" HeightRequest="100"/>
+                <ImageButton Source="bicycle.png" Grid.Row="0" Grid.Column="2" WidthRequest="100" HeightRequest="100"/>
+            </Grid>
+
+            <Button Text="Guardar Información" Clicked="OnSaveButtonClicked" />
+
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
+
+
+
