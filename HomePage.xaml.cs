@@ -3,7 +3,6 @@ using System;
 using System.IO; // Para el manejo de archivos
 using System.Threading.Tasks; // Para tareas asíncronas
 
-
 namespace Proyecto_de_prueba
 {
     public partial class HomePage : ContentPage
@@ -63,7 +62,6 @@ namespace Proyecto_de_prueba
             }
         }
 
-        // Método para guardar la información en la base de datos
         private async Task<bool> SaveUserInfo(string numero_cuenta, DateTime fecha_nacimiento, string foto_perfil)
         {
             try
@@ -72,14 +70,17 @@ namespace Proyecto_de_prueba
                 {
                     await connection.OpenAsync();
 
+                    // Leer el archivo de imagen y convertirlo a bytes
+                    byte[] imageBytes = await File.ReadAllBytesAsync(foto_perfil);
+
                     // Consulta SQL para insertar la información
-                    string query = "INSERT INTO Usuarios (numero_cuenta, fecha_nacimiento, foto_perfil) VALUES (@numero_cuenta, @fecha_nacimiento, @imagePath)";
+                    string query = "INSERT INTO Usuarios (numero_cuenta, fecha_nacimiento, foto_perfil) VALUES (@numero_cuenta, @fecha_nacimiento, @foto_perfil)";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@numero_cuenta", numero_cuenta);
                         command.Parameters.AddWithValue("@fecha_nacimiento", fecha_nacimiento);
-                        command.Parameters.AddWithValue("@foto_perfil", foto_perfil); // Guardar la ruta de la imagen
+                        command.Parameters.AddWithValue("@foto_perfil", imageBytes); // Guardar la imagen como bytes
 
                         int rowsAffected = await command.ExecuteNonQueryAsync();
                         return rowsAffected > 0; // Devuelve true si se insertaron filas
@@ -97,8 +98,10 @@ namespace Proyecto_de_prueba
                 return false;
             }
         }
+
     }
 }
+
 
 
 

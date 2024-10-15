@@ -27,7 +27,7 @@
             </StackLayout>
 
             <!-- Sección de estilos de casa -->
-            <Label Text="Selecciona al menos un estilo de casa:" FontAttributes="Bold"/>
+            <Label Text="Selecciona el tipo de casa que prefiere:" FontAttributes="Bold"/>
             <Grid RowSpacing="10" ColumnSpacing="10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -38,18 +38,30 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <!-- Cuatro imágenes de estilos de casa -->
-                <ImageButton Source="casa_playa.jpg" Grid.Row="0" Grid.Column="0" WidthRequest="100" HeightRequest="100"/>
-                <ImageButton Source="casa_montana.jpg" Grid.Row="0" Grid.Column="1" WidthRequest="100" HeightRequest="100"/>
-                <ImageButton Source="casa_rural.jpg" Grid.Row="1" Grid.Column="0" WidthRequest="100" HeightRequest="100"/>
-                <ImageButton Source="casa_ciudad.jpg" Grid.Row="1" Grid.Column="1" WidthRequest="100" HeightRequest="100"/>
+                <!-- Casa Playa -->
+                <Label Text="1" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center"/>
+                <ImageButton Source="casa_playa.jpg" Grid.Row="1" Grid.Column="0" WidthRequest="100" HeightRequest="100"/>
+
+                <!-- Casa Montaña -->
+                <Label Text="2" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center"/>
+                <ImageButton Source="casa_montana.jpg" Grid.Row="1" Grid.Column="1" WidthRequest="100" HeightRequest="100"/>
+
+                <!-- Casa Rural -->
+                <Label Text="3" Grid.Row="2" Grid.Column="0" HorizontalOptions="Center"/>
+                <ImageButton Source="casa_rural.jpg" Grid.Row="3" Grid.Column="0" WidthRequest="100" HeightRequest="100"/>
+
+                <!-- Casa Ciudad -->
+                <Label Text="4" Grid.Row="2" Grid.Column="1" HorizontalOptions="Center"/>
+                <ImageButton Source="casa_ciudad.jpg" Grid.Row="3" Grid.Column="1" WidthRequest="100" HeightRequest="100"/>
             </Grid>
+            
 
             <!-- Sección de tipos de transporte -->
             <Label Text="Selecciona el tipo de transporte que usas:" FontAttributes="Bold"/>
             <Grid RowSpacing="10" ColumnSpacing="10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -57,11 +69,19 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <!-- Imágenes de transporte -->
-                <ImageButton Source="car.jpg" Grid.Row="0" Grid.Column="0" WidthRequest="100" HeightRequest="100"/>
-                <ImageButton Source="motorcycle.png" Grid.Row="0" Grid.Column="1" WidthRequest="100" HeightRequest="100"/>
-                <ImageButton Source="bicycle.png" Grid.Row="0" Grid.Column="2" WidthRequest="100" HeightRequest="100"/>
+                <!-- Carro -->
+                <Label Text="1" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center"/>
+                <ImageButton Source="car.jpg" Grid.Row="1" Grid.Column="0" WidthRequest="100" HeightRequest="100"/>
+
+                <!-- Motocicleta -->
+                <Label Text="2" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center"/>
+                <ImageButton Source="motorcycle.png" Grid.Row="1" Grid.Column="1" WidthRequest="100" HeightRequest="100"/>
+
+                <!-- Bicicleta -->
+                <Label Text="3" Grid.Row="0" Grid.Column="2" HorizontalOptions="Center"/>
+                <ImageButton Source="bicycle.png" Grid.Row="1" Grid.Column="2" WidthRequest="100" HeightRequest="100"/>
             </Grid>
+
 
             <Button Text="Guardar Información" Clicked="OnSaveButtonClicked" />
 
